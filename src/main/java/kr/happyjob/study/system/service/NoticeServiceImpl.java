@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.happyjob.study.system.dao.NoticeDao;
+<<<<<<< HEAD
+=======
+import kr.happyjob.study.system.dto.NoticeDto;
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 import kr.happyjob.study.system.model.ComnGrpCodModel;
 import kr.happyjob.study.system.model.NoticeModel;
 
@@ -17,6 +21,7 @@ public class NoticeServiceImpl implements NoticeService {
   
 	// 공지사항 목록 조회
 	@Override
+<<<<<<< HEAD
 	public List<NoticeModel> selectNoticeList(Map<String, Object> param) throws Exception {
 	  // TODO Auto-generated method stub
 	  return noticeDao.selectNoticeList(param);
@@ -101,4 +106,17 @@ public class NoticeServiceImpl implements NoticeService {
   }
 
   
+=======
+	public List<NoticeDto> selectNoticeList(Map<String, Object> param) throws Exception {
+	  
+		return noticeDao.selectNoticeList(param);
+	}
+
+	@Override
+	public int noticeTotalCount() throws Exception {
+		return noticeDao.noticeTotalCount();
+	}
+	
+	
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 }

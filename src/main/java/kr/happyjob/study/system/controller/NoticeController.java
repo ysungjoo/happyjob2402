@@ -25,6 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.happyjob.study.common.comnUtils.FileUtilCho;
+<<<<<<< HEAD
+=======
+import kr.happyjob.study.system.dto.NoticeDto;
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 import kr.happyjob.study.system.model.NoticeModel;
 import kr.happyjob.study.system.service.NoticeService;
 
@@ -63,6 +67,12 @@ public class NoticeController {
   @RequestMapping(value="notice.do", method=RequestMethod.POST)
   public String selectNotice(@RequestParam(required = false) Map<String, Object> param, Model model, HttpSession session)throws Exception {
     
+<<<<<<< HEAD
+=======
+	log.info("=====> START selectNotice ");
+	  
+	  
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
     // 현재 페이지 번호
     int currentPage = Integer.parseInt((String) param.get("currentPage"));
     
@@ -72,8 +82,21 @@ public class NoticeController {
     // 페이지 시작 로우 번호
     int pageIndex = (currentPage - 1) * pageSize;
     
+<<<<<<< HEAD
     param.put("pageIndex", pageIndex);
     param.put("pageSize", pageSize);
+=======
+    // 구분 정보
+    int categoryCode = 1;
+    
+    log.info("=====> currentPage : " + currentPage);
+    log.info("=====> pageIndex : " + pageIndex);
+    log.info("=====> pageSize : " + pageSize);
+    
+    param.put("pageIndex", pageIndex);
+    param.put("pageSize", pageSize);
+    param.put("categoryCode", categoryCode);
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
     
     // 총 로우의 개수
     int totalCount;
@@ -97,7 +120,11 @@ public class NoticeController {
     }
     
     param.put("auth", auth);
+<<<<<<< HEAD
    // log.info("selectNotice - param:"+ param);
+=======
+    log.info("selectNotice - param:"+ param);
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
     // 검색어 유무 확인
     if(param.containsKey("option")) {
       String option = (String) param.get("option");
@@ -110,6 +137,7 @@ public class NoticeController {
       param.put("formerDate", formerDate);
       param.put("latterDate", latterDate);
       
+<<<<<<< HEAD
       totalCount = noticeService.countConditionList(param);
     }
     else {
@@ -328,4 +356,46 @@ public class NoticeController {
     }
     return result;
   }
+=======
+    }
+    else {
+      // 검색어가 없는 경우     
+    }
+    
+    List<NoticeDto> noticeList = noticeService.selectNoticeList(param); 
+    
+    totalCount = noticeService.noticeTotalCount();
+    
+//    totalCount = 13;
+    model.addAttribute("noticeList", noticeList);
+    model.addAttribute("pageSize", pageSize);
+    model.addAttribute("currentPage", currentPage);
+    model.addAttribute("totalCount", totalCount);
+    
+    log.info(noticeList);
+    log.info(totalCount);
+    
+    log.info("=====> End selectNotice ");
+    
+    return "/system/noticeList";
+ } 
+  
+  @RequestMapping("detailNotice.do")
+  @ResponseBody
+  public Map<String, Object> selectNoticeDetail(@RequestParam Map<String, Object> paramMap) {
+	  
+	  log.info("=====> START selectNoticeDetail");
+	 
+	  Map<String, Object> resultMap = new HashMap<String, Object>();
+	  
+	  resultMap.put("test", "test1");
+	 
+	  log.info("=====> test data : " + resultMap.get("test").toString());
+	  log.info("=====> END selectNoticeDetail");
+	  
+	  return resultMap;
+  }
+  
+  
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 }

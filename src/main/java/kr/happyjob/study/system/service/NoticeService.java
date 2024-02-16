@@ -3,11 +3,16 @@ package kr.happyjob.study.system.service;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
+import kr.happyjob.study.system.dto.NoticeDto;
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 import kr.happyjob.study.system.model.NoticeModel;
 
 public interface NoticeService {
   
   // 공지사항 목록 조회
+<<<<<<< HEAD
   public List<NoticeModel> selectNoticeList(Map<String, Object> param) throws Exception;
   
   //공지사항 목록 총 개수 조회
@@ -43,4 +48,11 @@ public interface NoticeService {
   // 파일 삭제
   public int deleteFile(int file_no) throws Exception;
   
+=======
+  public List<NoticeDto> selectNoticeList(Map<String, Object> param) throws Exception;
+
+  // 공지사항 수
+  public int noticeTotalCount() throws Exception;
+
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 }

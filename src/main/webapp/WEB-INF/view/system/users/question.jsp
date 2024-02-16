@@ -251,20 +251,22 @@
     }
     // 콜백
     var resultCallback = function(result) {
-      selectListCallBack(result, currentPage);
+    	console.log('question connect test');
+    	console.log(result);
+      	selectListCallBack(result, currentPage);
     };
-    callAjax("/system/notice.do", "post", "text", true, param, resultCallback);
+    noticeAjax("/system/question.do", "post", "text", true, param, resultCallback);
   }
 
   /* 공지사항 목록 조회 콜백 함수 */
   function selectListCallBack(result, currentPage) {
 
+	console.log("콜백함수 실행 성공")
+	console.log(result);
+	  
     // 기존 목록 삭제
-    $('#noticeList').empty();
-
-    // 신규 목록 생성
-    $("#noticeList").append(result);
-
+    $('#noticeList').empty().append(result);
+    
     // 리스트 로우의 총 개수 추출
     var totalCount = $("#totalCount").val();
 
@@ -277,8 +279,6 @@
     $("#currentPageCod").val(currentPage);
   }
   
-
-
   /* 공지사항 글 작성 함수 */
   function writeNotice() {
     // 공지사항 글 작성 null 체크
@@ -605,6 +605,26 @@
     }
   }
   
+	/** 기업고객 리스트 Ajax */
+	function noticeAjax(url, method, dataType, async, param, callback) {
+		$.ajax({
+			url : url,
+			type : method,
+			dataType : dataType,
+			async : async,
+			data : param,
+			success : function(data) {
+				callback(data);
+			},
+			error : function(xhr, status, err) {
+				console.log("xhr : " + xhr);
+				console.log("status : " + status);
+				console.log("err : " + err);
+				alert("에러발생")
+			}
+		})
+	}
+  
 </script>
 </head>
 <body>
@@ -619,17 +639,17 @@
       <div id="container">
         <ul>
           <li class="lnb">
-            <!-- lnb 영역 --> <jsp:include page="/WEB-INF/view/common/lnbMenu.jsp"></jsp:include> <!--// lnb 영역 -->
+            <!-- lnb 영역 --> <jsp:include page="/WEB-INF/view/common/lnbMenu2.jsp"></jsp:include> <!--// lnb 영역 -->
           </li>
           <li class="contents">
             <!-- contents -->
             <h3 class="hidden">contents 영역</h3> <!-- content -->
             <div class="content">
               <p class="Location">
-                <a href="#" class="btn_set home">메인으로</a><span class="btn_nav bold">공지사항</span> <a href="javascript:window.location.reload();" class="btn_set refresh">새로고침</a>
+                <a href="#" class="btn_set home">메인으로</a><span class="btn_nav bold">1:1 문의사항</span> <a href="javascript:window.location.reload();" class="btn_set refresh">새로고침</a>
               </p>
               <p class="conTitle">
-                <span>공지사항</span>
+                <span>1:1 문의사항</span>
               </p>
               <form class="search-container">
                 <div class="row">
@@ -693,7 +713,7 @@
                       <th scope="col">글번호</th>
                       <th scope="col">제목</th>
                       <th scope="col">작성일</th>
-                      <th scope="col">조회수</th>
+<!--                       <th scope="col">조회수</th> -->
                     </tr>
                   </thead>
                   <tbody id="noticeList"></tbody>

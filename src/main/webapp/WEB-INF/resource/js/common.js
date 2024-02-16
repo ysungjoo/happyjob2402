@@ -136,8 +136,11 @@ function getPaginationHtml(currentPage, totalCount, pageRow, blockPage, pageFunc
 	pageRow = parseInt(pageRow);
 	blockPage = parseInt(blockPage);
 	
+<<<<<<< HEAD
 			
 	
+=======
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 	var totalPage = Math.ceil(totalCount / pageRow);
 	if (totalPage == 0) {
 		totalPage = 1;

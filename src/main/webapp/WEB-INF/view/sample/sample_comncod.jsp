@@ -31,9 +31,12 @@
     	
     	fn_groupsearch();
     	
+<<<<<<< HEAD
     	
     	
     	
+=======
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 	});
 
 	/** 버튼 이벤트 등록 */
@@ -212,8 +215,11 @@
 	}
     
 
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 	function fn_groupsearch(currentPage) {
     	
     	currentPage = currentPage || 1;
@@ -232,7 +238,10 @@
     	};
 
     	console.log("currentPage ; " + currentPage);
+<<<<<<< HEAD
     	
+=======
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 		var resultCallback = function(data) {
 			fn_goruplistdisplay(data, currentPage);
 		}		

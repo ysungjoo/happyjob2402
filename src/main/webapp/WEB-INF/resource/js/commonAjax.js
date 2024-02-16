@@ -11,6 +11,10 @@ $(document).ajaxStop($.unblockUI);
  *   param : data parameter
  *   callback : callback function name
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 function callAjax(url, method, dataType, async, param, callback) {
 	//console.log('>>>>>>param일떄',param);
 	
@@ -37,7 +41,11 @@ function callAjax(url, method, dataType, async, param, callback) {
       			
 			if (xhr.status == 901) {
 				alert("로그인 정보가 없습니다.\n다시 로그인 해 주시기 바랍니다.");
+<<<<<<< HEAD
 				location.replace('/login.do');
+=======
+				location.replace('/index');
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 			} else {
 				alert('A system error has occurred.' + err);
 			}
@@ -361,4 +369,8 @@ function productCombo(comtype, combo_name, type, code, selvalue){
        },
        error:function(request,status,error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
   });  
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8

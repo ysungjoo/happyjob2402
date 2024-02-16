@@ -228,7 +228,12 @@
 										<encoding>${project.build.sourceEncoding}</encoding>
 								</configuration>
 						</plugin>
+<<<<<<< HEAD
 						<!-- <plugin> <artifactId>maven-war-plugin</artifactId> <version>2.6</version> <configuration> <warSourceDirectory>WebContent</warSourceDirectory> <failOnMissingWebXml>false</failOnMissingWebXml> </configuration> </plugin> // -->
+=======
+						
+						
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 				</plugins>
 		</build>
 </project>

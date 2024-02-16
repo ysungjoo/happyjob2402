@@ -29,7 +29,10 @@ import kr.happyjob.study.login.service.MailSendService;
 import kr.happyjob.study.system.model.ComnCodUtilModel;
 
 @Controller
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 public class LoginController {
 
 	// 커밋 테스트 됌 -동철
@@ -85,6 +88,66 @@ public class LoginController {
 
 		return "/login/login";
 	}
+<<<<<<< HEAD
+=======
+	
+	/* 회원가입 */
+	@RequestMapping("register.do")
+	@ResponseBody
+	public Map<String, Object> registerUser(Model model, @RequestParam Map<String, Object> paramMap,
+			HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+		logger.info("+ Start " + className + ".registerUser");
+		logger.info("   - paramMap : " + paramMap);
+
+		String action = (String) paramMap.get("action");
+		String result = "SUCCESS";
+		String resultMsg;
+
+		if ("I".equals(action)) {
+
+			loginService.registerUser(paramMap);
+//			loginService.registerCtminfo(paramMap);
+			resultMsg = "가입 요청 완료";
+		} else {
+
+			result = "FAIL";
+			resultMsg = "가입 요청 실패";
+		}
+
+		// login ID 스킬 delete
+
+		// insert
+
+		// paramMap
+
+		List<ComnCodUtilModel> bank = ComnCodUtil.getComnCod("BKcd");
+
+		for (ComnCodUtilModel bankitem : bank) {
+			String groupitem = bankitem.getGrp_cod();
+			String dtlitem = bankitem.getDtl_cod();
+
+			try {
+				String paramitem = (String) paramMap.get(dtlitem);
+
+				paramMap.put("skillgrpcd", groupitem);
+				paramMap.put("skilldtlcd", dtlitem);
+
+				// insert
+
+			} catch (Exception e) {
+
+			}
+		}
+
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("result", result);
+		resultMap.put("resultMsg", resultMsg);
+
+		logger.info("+ End " + className + ".registerUser");
+
+		return resultMap;
+	}
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 
 	/**
 	 * 사용자 로그인을 처리한다.
@@ -190,6 +253,7 @@ public class LoginController {
 		return mav;
 	}
 
+<<<<<<< HEAD
 	/* 회원가입 */
 	@RequestMapping("register.do")
 	@ResponseBody
@@ -246,6 +310,9 @@ public class LoginController {
 
 		return resultMap;
 	}
+=======
+	
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 
 	/* loginID 중복체크 */
 	@RequestMapping(value = "check_loginID", method = RequestMethod.POST)
@@ -407,6 +474,10 @@ public class LoginController {
 		return resultMap;
 	}
 
+<<<<<<< HEAD
+=======
+	//은행 게좌 리스트
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 	@RequestMapping("checklist.do")
 	@ResponseBody
 	public Map<String, Object> checklist(Model model, @RequestParam Map<String, Object> paramMap,

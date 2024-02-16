@@ -6,6 +6,13 @@ import java.util.Map;
 import kr.happyjob.study.login.model.LgnInfoModel;
 import kr.happyjob.study.login.model.UsrMnuAtrtModel;
 import kr.happyjob.study.login.model.UsrMnuChildAtrtModel;
+<<<<<<< HEAD
+=======
+import kr.happyjob.study.login.model.dto.LoginDto;
+import kr.happyjob.study.login.model.dto.UserMenuChildDto;
+import kr.happyjob.study.login.model.dto.UserMenuDto;
+
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 
 
 public interface LoginDao {
@@ -15,12 +22,24 @@ public interface LoginDao {
 	
 	/** 사용자 로그인 */
 	public LgnInfoModel selectLogin(Map<String, Object> paramMap);
+<<<<<<< HEAD
 	
 	/**  사용자 메뉴 권한 */
 	public List<UsrMnuAtrtModel> listUsrMnuAtrt(Map<String, Object> paramMap);
 	
 	/**  사용자 자식 메뉴 권한 */
 	public List<UsrMnuChildAtrtModel> listUsrChildMnuAtrt(Map<String, Object> paramMap);
+=======
+	public LoginDto loginUser(Map<String, Object> paramMap); // LoginService2 용
+	
+	/**  사용자 메뉴 권한 */
+	public List<UsrMnuAtrtModel> listUsrMnuAtrt(Map<String, Object> paramMap);
+	public List<UserMenuDto> listUserMenu(Map<String, Object> paramMap); // LoginService2용
+	
+	/**  사용자 자식 메뉴 권한 */
+	public List<UsrMnuChildAtrtModel> listUsrChildMnuAtrt(Map<String, Object> paramMap);
+	public List<UserMenuChildDto> listUserChildMenu(Map<String, Object> paramMap); // LoginService2용
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 	
 	/** 사용자 ID 찾기 */
 	public LgnInfoModel selectFindId(Map<String, Object> paramMap);
@@ -42,6 +61,10 @@ public interface LoginDao {
 	
 	/**loginID 중복체크*/
 	public int check_loginID(LgnInfoModel model);
+<<<<<<< HEAD
+=======
+	public int validate_loginID(LoginDto data);
+>>>>>>> 45ba225372f4b960add5e991dc88b6d49f945ef8
 	
 	/**이메일 중복체크*/
 	/*
